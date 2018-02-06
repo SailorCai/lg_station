@@ -4,50 +4,48 @@
     <div class="menu_btn"><i class="iconfont icon-liebiao"></i></div>
     <!-- 主体内容 -->
     <div class="content_panel">
-      <div class="blog_item">
-        <div class="item_head">
-          <p class="blog_title">
-            <a href="">This part walks you through the process of using Mint UI in a webpack project.</a>
-          </p>
-        </div>
-        <div class="item_desc"></div>
-        <div class="item_info"></div>
+      <div class="author_pan blog_item">
+        <div class="search_temp"></div>
+        <div class="avatar_temp"></div>
+        <div class="func_temp"></div>
       </div>
+      <v-item :class="{'home_top_item':true}"></v-item>
+      <v-item></v-item>
+      <v-item></v-item>
+      <v-item></v-item>
     </div>
   </div>
 </template>
 
 <script>
+import item from "@/components/item/item.vue"
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+
+    }
+  },
+  components: {
+    'v-item': item,
+  }
 }
 </script>
 
 <style scope>
-  @media screen and (max-width:500px){
-    .blog_item .blog_title{
-      font-size:22px;
-    }
-    .blog_item .blog_title a{}
-  }
-  /*pc样式*/
   @media screen and (min-width:500px){
-    .blog_item .blog_title{
-      font-size:30px;
-    }
+    .content_panel .home_top_item.blog_item{width:65%;}
+    .content_panel .author_pan{width:30%;}
   }
-  .blog_item .blog_title{
-    color:#fff;
-  }
-  .blog_item .blog_title a{
-    text-decoration: none;
-    color:#fff;
-    text-align:left;
+  .author_pan{
+    width:95%;
+    background-color:#fff;
+    padding:10px;
   }
   .main{
     width:100%;
     height:auto;
-    padding-top:160px;
+    padding-top:8rem;
   }
   .menu_btn{
     padding:10px 20px;
@@ -66,27 +64,6 @@ export default {
     align-items: stretch;
     box-sizing: border-box;
     justify-content: space-around;
-  }
-  .blog_item{
-    width:95%;
-    display: flex;
-    min-height: 25pc;
-    flex-direction: column;
-    align-items: stretch;
-    border-radius: 2px;
-    margin-bottom:45px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
-  }
-  .blog_item .item_head{
-    min-height:200px;
-    padding:20px;
-    background-image:url(http://r.photo.store.qq.com/psb?/V14UvRvG0Jhof1/KOv18zMyKu4Ss78u4E9z5waQj.ekVkJOHQ6.3Z99TOI!/r/dFYBAAAAAAAA);
-    background-size: cover;
-    display: flex;
-    box-sizing: border-box;
-    cursor: pointer;
-    flex-grow: 1;
-    flex-direction: row;
-    align-items: flex-end;  
+    flex-flow: row wrap;
   }
 </style>
