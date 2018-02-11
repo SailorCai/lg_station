@@ -1,7 +1,13 @@
 <template>
 <section>
-  <mt-popup position="top" :modal="false" v-model="popupVisible">
-    <div class="search_modal"></div>
+  <mt-popup position="top" :modal="false" v-model="popupVisible" style="width:100%;background:none;">
+    <div class="search_modal">
+      <div class="search_wrapper">
+        <input type="text" class="input_text">
+        <div class="search_btn">搜索</div>
+        <div class="search_btn bg_danger" @click="popupVisible=false">取消</div>
+      </div>
+    </div>
   </mt-popup>
   <div class="main">
     <!-- 菜单按钮 -->
@@ -146,4 +152,36 @@ export default {
     font-size:14px;
     color:#999;
   }
+  .search_modal{
+    width:100%;
+    height:4rem;
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content: space-around;
+  }
+  .search_wrapper{
+    display:flex;
+    width:90%;max-width: 900px;
+    padding:1rem;
+  }
+  .input_text{
+    flex-grow: 1;
+    padding:0 10px;
+    border-radius:5px;
+    border:none;
+  }
+  .search_btn{
+    display:inline-block;
+    padding:0 1rem;
+    height:2rem;
+    line-height:2rem;
+    font-size:0.7rem;
+    background:#409EFF;
+    box-sizing:border-box;
+    cursor:pointer;
+    color:#fff;
+    border-radius:2px;
+    margin:0 2px;
+  }
+  .bg_danger{background-color:#F56C6C !important;}
 </style>
