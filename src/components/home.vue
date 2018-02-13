@@ -19,11 +19,11 @@
         <div class="aside_title">蔡胜龙的博客</div>
       </div>
       <div class="menu_content">
-        <div class="menu_wrapper">
-          <div class="menu_fa_item"><i class="iconfont icon-home"></i>&nbsp;&nbsp;首页</div>
+        <div class="menu_wrapper" :class="{'active': menuIndex.index}">
+          <div class="menu_fa_item" @click="menuChange('index')"><i class="iconfont icon-home"></i>&nbsp;&nbsp;首页</div>
         </div>
-        <div class="menu_wrapper">
-          <div class="menu_fa_item">
+        <div class="menu_wrapper" :class="{'active': menuIndex.sort}">
+          <div class="menu_fa_item" @click="menuChange('sort')">
             <i class="iconfont icon-leimupinleifenleileibie2"></i>&nbsp;&nbsp;分类
             <i class="iconfont icon-arrow-right-copy-copy-copy" style="float:right"></i>
           </div>
@@ -31,11 +31,11 @@
           <div class="menu_ch_item"><i class="iconfont icon-78lvxing"></i>&nbsp;&nbsp;生活</div>
           <div class="menu_ch_item"><i class="iconfont icon-Trekking"></i>&nbsp;&nbsp;旅行</div>
         </div>
-        <div class="menu_wrapper">
-          <div class="menu_fa_item"><i class="iconfont icon-ren"></i>&nbsp;&nbsp;关于</div>
+        <div class="menu_wrapper" :class="{'active': menuIndex.about}">
+          <div class="menu_fa_item" @click="menuChange('about')"><i class="iconfont icon-ren"></i>&nbsp;&nbsp;关于</div>
         </div>
-        <div class="menu_wrapper">
-          <div class="menu_fa_item">
+        <div class="menu_wrapper" :class="{'active': menuIndex.friurl}">
+          <div class="menu_fa_item" @click="menuChange('friurl')">
             <i class="iconfont icon-lianjie1"></i>&nbsp;&nbsp;友情链接
             <i class="iconfont icon-arrow-right-copy-copy-copy" style="float:right"></i>
           </div>
@@ -83,9 +83,26 @@ export default {
   name: 'App',
   data() {
     return {
-      popupTopVisible:false,
-      popupLeftVisible:false,
+      popupTopVisible: false,
+      popupLeftVisible: false,
+      menuIndex: {
+        index: false,
+        sort: false,
+        about: false,
+        friurl: false
+      }
     }
+  },
+  methods: {
+    menuChange(name) {
+      console.log(666);
+      for(var key in this.menuIndex){
+        if(key!=name){
+          this.menuIndex[key] = false;
+        }
+      };
+      this.menuIndex[name] = !this.menuIndex[name];
+    },
   },
   components: {
     'v-item': item,
