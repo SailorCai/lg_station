@@ -1,20 +1,45 @@
 <template>
 <section>
+  <!-- 搜索弹框 -->
   <mt-popup position="top" :modal="false" v-model="popupTopVisible" style="width:100%;background:none;">
     <div class="search_modal">
       <div class="search_wrapper">
         <input type="text" class="input_text">
-        <div class="search_btn">搜索</div>
-        <div class="search_btn bg_danger" @click="popupTopVisible=false">取消</div>
+        <div class="search_btn"><i class="iconfont icon-sousuosearch79"></i></div>
+        <div class="search_btn bg_danger" @click="popupTopVisible=false"><i class="iconfont icon-quxiao"></i></div>
       </div>
     </div>
   </mt-popup>
+  <!-- 导航弹框 -->
   <mt-popup position="left" :modal="true" v-model="popupLeftVisible" style="width:70%;background:#fff;max-width:300px;height:100%;">
     <div class="aside_modal">
       <div class="aside_head">
       <div class="menu_btn menu_btn_aside" @click="popupLeftVisible=!popupLeftVisible"><i class="iconfont icon-fanhui"></i></div>
         <div class="aside_avatar"><img src="http://img1.imgtn.bdimg.com/it/u=1062502429,3132037224&fm=200&gp=0.jpg"></div>
         <div class="aside_title">蔡胜龙的博客</div>
+      </div>
+      <div class="menu_content">
+        <div class="menu_wrapper">
+          <div class="menu_fa_item"><i class="iconfont icon-home"></i>&nbsp;&nbsp;首页</div>
+        </div>
+        <div class="menu_wrapper">
+          <div class="menu_fa_item">
+            <i class="iconfont icon-leimupinleifenleileibie2"></i>&nbsp;&nbsp;分类
+            <i class="iconfont icon-arrow-right-copy-copy-copy" style="float:right"></i>
+          </div>
+          <div class="menu_ch_item"><i class="iconfont icon-leijishufuwux"></i>&nbsp;&nbsp;技术栈</div>
+          <div class="menu_ch_item"><i class="iconfont icon-78lvxing"></i>&nbsp;&nbsp;生活</div>
+          <div class="menu_ch_item"><i class="iconfont icon-Trekking"></i>&nbsp;&nbsp;旅行</div>
+        </div>
+        <div class="menu_wrapper">
+          <div class="menu_fa_item"><i class="iconfont icon-ren"></i>&nbsp;&nbsp;关于</div>
+        </div>
+        <div class="menu_wrapper">
+          <div class="menu_fa_item">
+            <i class="iconfont icon-lianjie1"></i>&nbsp;&nbsp;友情链接
+            <i class="iconfont icon-arrow-right-copy-copy-copy" style="float:right"></i>
+          </div>
+        </div>
       </div>
     </div>
   </mt-popup>
@@ -97,7 +122,7 @@ export default {
     cursor:pointer;
   }
   .menu_btn .iconfont{
-    font-size:20px;
+    font-size:1.5rem;
     color:#0E52A3;
   }
   .menu_btn_right{
@@ -193,6 +218,9 @@ export default {
     border-radius:2px;
     margin:0 2px;
   }
+  .search_btn .iconfont{
+    font-size:0.7rem;
+  }
   .bg_danger{background-color:#F56C6C !important;}
   .aside_modal{
     width:100%;
@@ -231,4 +259,41 @@ export default {
     right:0.5rem;
   }
   .menu_btn_aside .iconfont{color:#fff;}
+  .menu_content{
+    padding:1rem 0;
+  }
+  .menu_content *{
+    cursor:pointer;
+  }
+  .menu_content .menu_wrapper {
+    display:flex;
+    flex-direction: column;
+  }
+  .menu_content .menu_wrapper div:hover{
+    background:#666;
+  }
+  .menu_wrapper .menu_fa_item{
+    font-size:16px;
+    padding:5px 1rem;
+  }
+  .menu_wrapper .menu_ch_item{
+    font-size:13px;
+    padding:5px 1.5rem;
+    display:none;
+  }
+  .menu_wrapper.active .menu_ch_item{
+    font-size:13px;
+    padding:5px 1.5rem;
+    display:block;
+  }
+  .menu_wrapper .menu_ch_item .iconfont{
+    vertical-align: middle;
+    font-size:15px;
+    margin-right:1rem;
+  }
+  .menu_wrapper .menu_fa_item .iconfont{
+    vertical-align: middle;
+    font-size:20px;
+    margin-right:1rem;
+  }
 </style>
