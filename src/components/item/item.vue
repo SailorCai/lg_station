@@ -11,7 +11,7 @@
       <div class="item_info meta">
         <div class="authInfo">
           <div class="author_avatar">
-            <img src="https://m.qpic.cn/psb?/V14UvRvG0Jhof1/.54Vd6gi6d7yRuYrhYZpMkI3O881SMnanXWAgr7eIFQ!/b/dJUAAAAAAAAA&bo=QAaEA0AGhAMRCT4!&rf=viewer_4" alt="作者头像">
+            <img src="@/../static/images/logan.jpg" alt="作者头像">
           </div>
           <div>
             <strong>蔡胜龙</strong>
@@ -47,7 +47,7 @@ export default {
   .blog_item .item_head{
     min-height:10rem;
     padding:1rem;
-    background-image:url(http://r.photo.store.qq.com/psb?/V14UvRvG0Jhof1/KOv18zMyKu4Ss78u4E9z5waQj.ekVkJOHQ6.3Z99TOI!/r/dFYBAAAAAAAA);
+    background-image:url(https://api.i-meto.com/bing?color=multi);
     background-size: cover;
     display: flex;
     box-sizing: border-box;

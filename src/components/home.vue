@@ -15,7 +15,7 @@
     <div class="aside_modal">
       <div class="aside_head">
       <div class="menu_btn menu_btn_aside" @click="popupLeftVisible=!popupLeftVisible"><i class="iconfont icon-fanhui"></i></div>
-        <div class="aside_avatar"><img src="http://img1.imgtn.bdimg.com/it/u=1062502429,3132037224&fm=200&gp=0.jpg"></div>
+        <div class="aside_avatar"><img src="@/../static/images/logan.jpg"></div>
         <div class="aside_title">蔡胜龙的博客</div>
       </div>
       <div class="menu_content">
@@ -51,7 +51,7 @@
     <div class="content_panel">
       <div class="author_pan blog_item">
         <div class="avatar_temp">
-          <a class="avatar_wrapper" href=""><img src="http://m.qpic.cn/psb?/V14UvRvG0Jhof1/Z2SHgfF7GS4vvQJJleWGcZSk9xx41i6XaCWC*K666X0!/b/dGoBAAAAAAAA&bo=QAaEA0AGhAMROQ4!&rf=viewer_4" alt=""></a>
+          <a class="avatar_wrapper" href=""><img src="@/../static/images/logan.jpg" alt=""></a>
         </div>
         <div class="func_temp">
           <div class="csl_blog">
