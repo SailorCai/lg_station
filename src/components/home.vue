@@ -39,6 +39,7 @@
             <i class="iconfont icon-lianjie1"></i>&nbsp;&nbsp;友情链接
             <i class="iconfont icon-arrow-right-copy-copy-copy" style="float:right"></i>
           </div>
+          <a class="menu_ch_item" href="@/../static/html/about.html"><i class="iconfont icon-leijishufuwux"></i>&nbsp;&nbsp;关于</a>
         </div>
       </div>
     </div>
