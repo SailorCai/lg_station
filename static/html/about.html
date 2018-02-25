@@ -66,12 +66,17 @@
     padding-top:6rem;
   }
   .menu_btn{
+  	color:#0E52A3;
+  	background-color:rgba(0,0,0,0.3);
+  	text-decoration: none;
     padding:10px 20px;
     position:fixed;
     top:1pc;
     cursor:pointer;
+    border-radius:0.5rem;
   }
   .menu_btn .iconfont{
+  	vertical-align: bottom;
     font-size:1.5rem;
     color:#0E52A3;
   }
@@ -142,8 +147,7 @@
 <body>
   <div class="main">
     <!-- 菜单按钮 -->
-    <a class="menu_btn menu_btn_left" href="/#/"><i class="iconfont icon-liebiao"></i>首页</a>
-    <div class="menu_btn menu_btn_right" @click="popupTopVisible=!popupTopVisible"><i class="iconfont icon-sousuosearch79"></i></div>
+    <a class="menu_btn menu_btn_left" href="/#/"><i class="iconfont icon-home"></i>首页</a>
     <!-- 主体内容 -->
     <div class="content_panel">
 

@@ -50,24 +50,7 @@
     <div class="menu_btn menu_btn_right" @click="popupTopVisible=!popupTopVisible"><i class="iconfont icon-sousuosearch79"></i></div>
     <!-- 主体内容 -->
     <div class="content_panel">
-      <div class="author_pan blog_item">
-        <div class="avatar_temp">
-          <a class="avatar_wrapper" href=""><img src="@/../static/images/logan.jpg" alt=""></a>
-        </div>
-        <div class="func_temp">
-          <div class="csl_blog">
-            <strong>蔡胜龙的博客</strong>
-          </div>
-          <div class="csl_func">
-            <span class="icon_btn"><i class="iconfont icon-tiyu-kualan"></i></span>
-            <span class="icon_btn"><i class="iconfont icon-78lvxing"></i></span>
-          </div>
-        </div>
-      </div>
-      <v-item :class="{'home_top_item':true}"></v-item>
-      <v-item></v-item>
-      <v-item></v-item>
-      <v-item></v-item>
+      <router-view/>
     </div>
   </div>
   <footer>
@@ -79,7 +62,6 @@
 </template>
 
 <script>
-import item from "@/components/item/item.vue"
 export default {
   name: 'App',
   data() {
@@ -106,7 +88,7 @@ export default {
     },
   },
   components: {
-    'v-item': item,
+    //'v-item': item,
   }
 }
 </script>
@@ -123,10 +105,14 @@ export default {
       padding:10px;
       margin-bottom:0;
     }
-  }
-  .author_pan{
-    background-color:#fff;
-    box-sizing:border-box;
+    footer{
+      display:flex;
+      flex-direction:column !important;
+      justify-content: center !important;
+      padding:2rem;
+      background:#fff;
+      margin-top:2rem;
+    }
   }
   .main{
     width:100%;
@@ -156,25 +142,6 @@ export default {
     justify-content: space-around;
     flex-flow: row wrap;
   }
-
-  .avatar_temp{
-    display:flex;
-    flex-grow: 1;
-    flex-direction: column;
-    justify-content:space-around;
-  }
-  .avatar_wrapper{
-    display:inline-block;
-    width:10rem;
-    height:10rem;
-    margin:0 auto;
-    border-radius:50%;
-    overflow:hidden;
-  }
-  .avatar_wrapper img{
-    width:100%;
-    height:100%;
-  }
   .func_temp{
     padding:0.8rem;
     display:flex;
@@ -194,9 +161,11 @@ export default {
     font-size:25px;
   }
   footer{
+    width:100%;
     display:flex;
     flex-direction:row;
     justify-content: space-between;
+    text-align:center;
     padding:2rem;
     background:#fff;
     margin-top:2rem;
