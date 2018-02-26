@@ -33,7 +33,7 @@
 		}
 	}
 </script>
-<style>
+<style scoped>
   @media screen and (min-width:500px){
     .content_panel .home_top_item.blog_item{width:65%;}
     .content_panel .author_pan{width:33%;margin-bottom:2.2rem;}

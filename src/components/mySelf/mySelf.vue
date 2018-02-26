@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style scope>
+<style scoped>
   @media screen and (min-width:500px){
     .mail_wrap input{
       border:none;
@@ -98,6 +98,7 @@ export default {
   }
   .blog_item{
     width:100%;
+    height:auto !important;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -108,7 +109,7 @@ export default {
     justify-content: space-around;
   }
   .blog_item .item_head{
-    min-height:15rem;
+    min-height:15rem !important;
     padding:1rem;
     background-image:url(https://api.i-meto.com/bing?color=multi);
     background-size: cover;

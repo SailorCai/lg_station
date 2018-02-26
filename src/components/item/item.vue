@@ -34,8 +34,9 @@ export default {
 <style>
   .blog_item{
     width:95%;
+    height:19rem;
     display: flex;
-    min-height: 20rem;
+    min-height: 19rem;
     flex-direction: column;
     align-items: stretch;
     border-radius: 0.2rem;

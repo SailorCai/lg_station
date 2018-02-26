@@ -85,6 +85,13 @@ export default {
         }
       };
       this.menuIndex[name] = !this.menuIndex[name];
+      if(name=="about"){
+        location.href="@/../static/html/about.html"
+        this.popupLeftVisible=false;
+      }else if(name=="index"){
+        this.$router.push('/main');
+        this.popupLeftVisible=false;
+      }
     },
   },
   components: {
@@ -93,7 +100,7 @@ export default {
 }
 </script>
 
-<style scope>
+<style>
   @media screen and (min-width:500px){
     .content_panel .home_top_item.blog_item{width:65%;}
     .content_panel .author_pan{width:33%;margin-bottom:2.2rem;}
