@@ -80,13 +80,13 @@ export default {
     float:left;
   }
   .author_avatar{
-    width:2.2rem;
-    height:2.2rem;
+    width:44px;
+    height:44px;
     margin-right:0.75rem;
   }
   .author_avatar img{
-    width:2.2rem;
-    height:2.2rem;
+    width:44px;
+    height:44px;
   }
   .item_info .item_right_menu{
     padding:1.1rem;
