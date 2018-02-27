@@ -290,4 +290,12 @@ export default {
     font-size:20px;
     margin-right:1rem;
   }
+  section{
+    width:100%;
+    display:flex;
+    align-items: stretch;
+    box-sizing: border-box;
+    justify-content: space-around;
+    flex-flow: row wrap;
+  }
 </style>

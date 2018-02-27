@@ -34,9 +34,9 @@ export default {
 <style>
   .blog_item{
     width:95%;
-    height:19rem;
+    height:20rem;
     display: flex;
-    min-height: 19rem;
+    min-height: 20rem;
     flex-direction: column;
     align-items: stretch;
     border-radius: 0.2rem;
@@ -46,7 +46,7 @@ export default {
     justify-content: space-around;
   }
   .blog_item .item_head{
-    min-height:10rem;
+    min-height:9rem;
     padding:1rem;
     background-image:url(https://api.i-meto.com/bing?color=multi);
     background-size: cover;

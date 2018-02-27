@@ -70,7 +70,6 @@
   }
   section{
     width:100%;
-    margin:0 auto;
     display:flex;
     align-items: stretch;
     box-sizing: border-box;
