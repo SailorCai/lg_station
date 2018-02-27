@@ -78,7 +78,7 @@ export default {
   },
   methods: {
     menuChange(name) {
-      console.log(666);
+      console.log(88888);
       for(var key in this.menuIndex){
         if(key!=name){
           this.menuIndex[key] = false;
