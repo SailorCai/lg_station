@@ -11,7 +11,13 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "connect-mongo": "^2.0.1",
+    "connect-multiparty": "^2.1.0",
+    "cookie-parser": "^1.4.3",
+    "express-session": "^1.15.6",
     "mint-ui": "^2.2.13",
+    "moment": "^2.20.1",
+    "mongoose": "^5.0.7",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },

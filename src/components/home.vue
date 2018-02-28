@@ -39,7 +39,9 @@
             <i class="iconfont icon-lianjie1"></i>&nbsp;&nbsp;友情链接
             <i class="iconfont icon-arrow-right-copy-copy-copy" style="float:right"></i>
           </div>
-          <a class="menu_ch_item" href="@/../static/html/about.html"><i class="iconfont icon-leijishufuwux"></i>&nbsp;&nbsp;关于</a>
+          <a class="menu_ch_item" href="http://www.gnnu.cn/" target="_blank"><i class="iconfont icon-lianjie1"></i>&nbsp;&nbsp;赣南师范大学</a>
+          <a class="menu_ch_item" href="http://www.jxln.ccoo.cn/" target="_blank"><i class="iconfont icon-lianjie1"></i>&nbsp;&nbsp;龙南信息网</a>
+          <a class="menu_ch_item" href="http://dz.cppfoto.com/news/detail.aspx?id=2097" target="_blank"><i class="iconfont icon-lianjie1"></i>&nbsp;&nbsp;围屋风情</a>
         </div>
       </div>
     </div>
@@ -106,7 +108,7 @@ export default {
     .content_panel .author_pan{width:33%;margin-bottom:2.2rem;}
   }
   @media screen and (max-width:500px){
-    .content_panel .home_top_item.blog_item{width:100%;min-height:8rem;}
+    .content_panel .home_top_item.blog_item{width:100%;max-height:15rem !important;}
     .content_panel .author_pan{
       width:100%;
       padding:10px;
@@ -274,6 +276,8 @@ export default {
     font-size:13px;
     padding:5px 1.5rem;
     display:none;
+    text-decoration: none;
+    color:#51606E;
   }
   .menu_wrapper.active .menu_ch_item{
     font-size:13px;

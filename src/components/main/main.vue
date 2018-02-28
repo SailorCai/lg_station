@@ -43,7 +43,7 @@
     .content_panel .author_pan{
       width:100%;
       padding:10px;
-      margin-bottom:0;
+      margin-bottom:0rem;
     }
   }
   .author_pan{
