@@ -11,10 +11,10 @@ var fs = require('fs');
 var env = process.env.NODE_ENV || 'development';
 
 app.use(express.static('dist'));
-var dbUrl = 'mongodb://imooc_movie_runner:F**k9001$@127.0.0.1:29999/imooc_movie';
+var dbUrl = 'mongodb://imooc_movie_runner:F**k9001$@127.0.0.1:29999/lgData';
 
 if(env === 'development'){
-  dbUrl = 'mongodb://localhost/lgDate';
+  dbUrl = 'mongodb://localhost/lgData';
 };
 
 mongoose.connect(dbUrl, {
