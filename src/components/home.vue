@@ -64,6 +64,7 @@
 </template>
 
 <script>
+import {getAll, postAll} from "@/api/api.js"
 export default {
   name: 'App',
   data() {
@@ -80,7 +81,7 @@ export default {
   },
   methods: {
     menuChange(name) {
-      console.log(88888);
+      console.log('hahahahah');
       for(var key in this.menuIndex){
         if(key!=name){
           this.menuIndex[key] = false;
@@ -93,8 +94,21 @@ export default {
       }else if(name=="index"){
         this.$router.push('/main');
         this.popupLeftVisible=false;
-      }
+      };
     },
+    getList() {
+      getAll('/page/list', {})
+      .then((res)=>{
+        console.log(res);
+      })
+      .catch((err)=>{
+        console.log(err);
+      });
+    },
+  },
+  mounted(){
+    console.log(77777);
+    this.getList();
   },
   components: {
     //'v-item': item,

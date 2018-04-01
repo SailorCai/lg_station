@@ -50,6 +50,8 @@ app.get('/', function(req, res){
   //res.send('hello world');
 });
 
+require('./config/routes')(app);
+
 var server = app.listen(3002, function(){
   var host = server.address().address;
   var port = server.address().port;

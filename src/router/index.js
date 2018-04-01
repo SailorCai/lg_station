@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/home'
 import Main from '@/components/main/main.vue'
 import mySelf from '@/components/mySelf/mySelf.vue'
+import Editor from '@/components/editor/editor.vue'
 
 Vue.use(Router)
 
@@ -32,7 +33,12 @@ export default new Router({
           component: mySelf,
           hidden: false
         },
+        {
+          path: '/editor',
+          name: 'admin',
+          component: Editor
+        }    
       ]
-    },    
+    },
   ]
 })
