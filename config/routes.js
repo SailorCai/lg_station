@@ -17,10 +17,12 @@ module.exports = function(app){
     });
     //res.writeHeader(200, {'content-Type':'text/plain'});
   });
+
   app.post('/page/save', function(req, res){
-  	console.log(req.body.title);
+  	//console.log(req.body.title);
   	var id = req.body._id;
   	var pageObj = req.body;
+    var _page;
   	if(id){
   		Page.findById(id, function(err, page){
   			if(err){
@@ -37,9 +39,50 @@ module.exports = function(app){
   			};
   		});
   	}else{
-  		
+      _page = new Page(pageObj);
+      var categoryId = pageObj.category;
+      var categoryName = pageObj.categoryName;
+      _page.save(function(err, page){
+        if(err){
+          console.log(err);
+          console.log(11111);
+          return;
+        };
+        if(categoryId){
+          Category.findById(categoryId, function(err, category){
+            category.pages.push(_page);
+            category.save(function(err, category){
+              res.redirect('/page/'+page._id);
+            });
+          });
+        }else if(categoryName){
+          var category = new Category({
+            name: categoryName,
+            pages: [page._id]
+          });
+          category.save(function(err, category){
+            page.category = category._id;
+            page.save(function(err, page){
+              if(err){
+                console.log(err);
+              };
+              res.redirect('/page/'+page._id);
+            });
+          });
+        };
+      });
   	};
-
   	//var _di = req.body.movie.id;
   });
+
+  // 获取分类
+  app.get('/category/all', function(req, res){
+    Category.fetch(function(err, categorys){
+      if(err){
+        console.log(err);
+      }
+      res.send(categorys);
+    });
+  });
+
 };

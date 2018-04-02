@@ -4,10 +4,11 @@ var ObjectId = Schema.Types.ObjectId;
 
 var pageSchema = new Schema({
   title: String,
-  author: {
+  /*author: {
     type: ObjectId,
     ref: 'User'
-  },
+  },*/
+  author: String,
   bannerUrl: String,
   summary: String,
   content: String,

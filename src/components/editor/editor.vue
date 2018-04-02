@@ -16,14 +16,14 @@
 		<span class="attr_name">内容概括：</span>
 		<input type="text" name="" class="editor_input" v-model="form.summary">
 	</div>
-	<div class="editor_filed">
-		<span class="attr_name">分类：</span>
-		<select class="editor_select" v-model="form.category">
-			<option>生活</option>
-			<option>生活</option>
-			<option>生活</option>
-		</select>
-	</div>
+  <div class="editor_filed">
+    <span class="attr_name">文章分类：</span>
+    <input type="text" name="" class="editor_input" v-model="form.categoryName">
+  </div>
+  <div class="editor_filed">
+    <span class="attr_name">分类选择：</span>
+    <label for="" v-for="item in categorys"><input type="radio"></label>
+  </div>
 	<div class="editor_filed">
 		<span class="attr_name">文章内容：</span>
 	</div>
@@ -47,8 +47,9 @@ export default {
   			author: '',
   			summary: '',
   			content: '',
-  			category: ''
-  		}
+        categoryName: '',
+  		},
+      categorys:[],
   	}
   },
   methods: {
@@ -63,13 +64,25 @@ export default {
   			console.log(err);
   		});
   	},
+    getCategory() {
+      var vim = this;
+      getAll('/category/all', {})
+      .then(function(data){
+        console.log(data);
+        vim.categorys = data.data;
+      })
+      .catch(function(err){
+        console.log(err);
+      });
+    },
   },
   mounted(){
     this.editor = new E(this.$refs.ed_target)
     this.editor.customConfig.onchange = (html) => {
       this.editorContent = html;
     }
-    this.editor.create()  
+    this.editor.create();
+    this.getCategory();  
   }
 }
 </script>
