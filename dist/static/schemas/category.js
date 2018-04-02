@@ -20,7 +20,7 @@ var categorySchema = new Schema({
 //为模式添加方法
 categorySchema.pre('save', function(next){  //每次保存数据前都会调用这个方法
   if(this.isNew){
-    this.meta.createAt = this.meta.updateAt = Date.new();
+    this.meta.createAt = this.meta.updateAt = Date.now();
   }else{
     this.meta.updateAt = Date.now();
   };

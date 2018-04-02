@@ -1,12 +1,12 @@
 <template>
     <div class="blog_item">
-      <div class="item_head">
+      <div class="item_head" ref="item_head" v-style="bkStyle">
         <p class="blog_title">
-          <a href="">This part walks you through the process of using Mint UI in a webpack project.</a>
+          <a href="">{{page.title}}</a>
         </p>
       </div>
       <div class="item_desc">
-        <p>据广告里说，这烟吸入后吐出的烟，会变成治愈系神兽的形态来抚慰你。     <a class="read_yw" href="">阅读全文</a></p>
+        <p>{{page.summary}}     <a class="read_yw" href="">阅读全文</a></p>
       </div>
       <div class="item_info meta">
         <div class="authInfo">
@@ -14,8 +14,8 @@
             <img src="@/../static/images/logan.jpg" alt="作者头像">
           </div>
           <div>
-            <strong>蔡胜龙</strong>
-            <span>2018年1月24日</span>
+            <strong>{{page.author}}</strong>
+            <span>{{page.meta.createAt}}</span>
           </div>
         </div>
         <div class="item_right_menu">
@@ -27,7 +27,22 @@
 
 <script>
 export default {
-  name: ''
+  name: '',
+  props: {
+    page:{
+      type: Object,
+    }
+  },
+  data() {
+    return{
+      bkStyle:{'backgound-image':'url('+this.page.bannerUrl+')'}
+    };
+  },
+  mounted() {
+    this.$nextTick(function () {
+      
+    });
+  },
 }
 </script>
 
@@ -49,7 +64,7 @@ export default {
   .blog_item .item_head{
     min-height:9rem;
     padding:1rem;
-    background-image:url(https://api.i-meto.com/bing?color=multi);
+    /*background-image:url(https://api.i-meto.com/bing?color=multi);*/
     background-size: cover;
     display: flex;
     box-sizing: border-box;

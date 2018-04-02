@@ -96,19 +96,6 @@ export default {
         this.popupLeftVisible=false;
       };
     },
-    getList() {
-      getAll('/page/list', {})
-      .then((res)=>{
-        console.log(res);
-      })
-      .catch((err)=>{
-        console.log(err);
-      });
-    },
-  },
-  mounted(){
-    console.log(77777);
-    this.getList();
   },
   components: {
     //'v-item': item,

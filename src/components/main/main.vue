@@ -15,23 +15,38 @@
         </div>
       </div>
       <v-item :class="{'home_top_item':true}"></v-item>
-      <v-item></v-item>
-      <v-item></v-item>
-      <v-item></v-item>
+      <v-item v-for="item in pageList" :page="item"></v-item>
 	</section>
 </template>
 <script>
-	import item from "@/components/item/item.vue"
-	export default {
-		data (){
-			return {
-
-			}
-		},
-		components: {
-		'v-item': item,
+import {getAll, postAll} from "@/api/api.js"
+import item from "@/components/item/item.vue"
+export default {
+	data (){
+		return {
+			pageList: [],
 		}
+	},
+	methods:{
+	    getList() {
+	    	var vim = this;
+	      getAll('/page/list', {})
+	      .then((data)=>{
+	        //console.log(data);
+	        vim.pageList = data.data;
+	      })
+	      .catch((err)=>{
+	        console.log(err);
+	      });
+	    },
+	},
+  mounted(){
+    this.getList();
+	},
+	components: {
+	'v-item': item,
 	}
+}
 </script>
 <style scoped>
   @media screen and (min-width:500px){

@@ -46,27 +46,30 @@ module.exports = function(app){
         if(err){
           console.log(err);
           console.log(11111);
-          return;
         };
         if(categoryId){
           Category.findById(categoryId, function(err, category){
             category.pages.push(_page);
             category.save(function(err, category){
-              res.redirect('/page/'+page._id);
+              //res.redirect('/page/'+page._id);
             });
           });
         }else if(categoryName){
-          var category = new Category({
+          var _category = new Category({
             name: categoryName,
             pages: [page._id]
           });
-          category.save(function(err, category){
+          _category.save(function(err, category){
+          	if(err){
+          		console.log(err);
+          	};
             page.category = category._id;
             page.save(function(err, page){
               if(err){
                 console.log(err);
               };
-              res.redirect('/page/'+page._id);
+              res.send(page);
+              //res.redirect('/page/'+page._id);
             });
           });
         };
