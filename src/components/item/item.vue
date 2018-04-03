@@ -1,6 +1,7 @@
 <template>
     <div class="blog_item">
-      <div class="item_head" ref="item_head" v-style="bkStyle">
+      <div class="item_head" ref="item_head" :style="bkStyle">
+        <img :src="page.bannerUrl" alt="">
         <p class="blog_title">
           <a href="">{{page.title}}</a>
         </p>
@@ -62,19 +63,25 @@ export default {
   }
   .home_top_item.blog_item .item_desc{display:none;}
   .blog_item .item_head{
+    overflow:hidden;
+    position:relative;
     min-height:9rem;
-    padding:1rem;
     /*background-image:url(https://api.i-meto.com/bing?color=multi);*/
     background-size: cover;
-    display: flex;
     box-sizing: border-box;
     cursor: pointer;
     flex-grow: 1;
-    flex-direction: row;
-    align-items: flex-end;  
   }
+  .blog_item .item_head img{
+    width:100%;
+  }
+
   .blog_item .blog_title{
+    padding:1rem;
     font-size:1.5rem;
+    position:absolute;
+    bottom:0;
+    width:100%;
   }
   .blog_item .item_desc{
     padding:1.3rem;
@@ -85,7 +92,6 @@ export default {
     color:#94F28E;
   }
   .blog_item .item_info{
-    overflow:hidden;
     background-color:#fff;
     border-top:1px solid rgba(0, 0, 0, .1);
   }
