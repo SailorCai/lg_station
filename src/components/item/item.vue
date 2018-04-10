@@ -7,7 +7,7 @@
         </p>
       </div>
       <div class="item_desc">
-        <p>{{page.summary}}     <a class="read_yw" href="">阅读全文</a></p>
+        <p>{{page.summary}}     <a class="read_yw" :href="'page/'+page._id">阅读全文</a></p>
       </div>
       <div class="item_info meta">
         <div class="authInfo">
@@ -16,11 +16,11 @@
           </div>
           <div>
             <strong>{{page.author}}</strong>
-            <span>{{page.meta.createAt}}</span>
+            <span>{{page.time?page.time:page.meta.updateAt}}</span>
           </div>
         </div>
         <div class="item_right_menu">
-          <span>技术栈</span>
+          <span>{{page.category.name}}</span>
         </div>
       </div>
     </div>

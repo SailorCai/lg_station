@@ -10,7 +10,7 @@ var multipart = require('connect-multiparty');
 var fs = require('fs');
 var env = process.env.NODE_ENV || 'development';
 
-app.use(express.static('dist'));
+app.use(express.static(path.join(__dirname, 'dist')));
 var dbUrl = 'mongodb://imooc_movie_runner:F**k9001$@127.0.0.1:29999/lgData';
 
 if(env === 'development'){
@@ -44,6 +44,8 @@ if('development' === app.get('evn')){  //如果当前evn是开发环境
   mongoose.set('debug', true);  //打开mongoose的debug开关
 };
 
+app.set('views', './static/html');
+app.set('view engine', 'jade');
 
 app.get('/', function(req, res){
   res.redirect('/index.shtml');

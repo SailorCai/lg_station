@@ -27,9 +27,7 @@
             <i class="iconfont icon-leimupinleifenleileibie2"></i>&nbsp;&nbsp;分类
             <i class="iconfont icon-arrow-right-copy-copy-copy" style="float:right"></i>
           </div>
-          <div class="menu_ch_item"><i class="iconfont icon-leijishufuwux"></i>&nbsp;&nbsp;技术栈</div>
-          <div class="menu_ch_item"><i class="iconfont icon-78lvxing"></i>&nbsp;&nbsp;生活</div>
-          <div class="menu_ch_item"><i class="iconfont icon-Trekking"></i>&nbsp;&nbsp;旅行</div>
+          <div class="menu_ch_item" v-for="(cat,index) in categorys"><i class="iconfont" :class="icons[index]"></i>&nbsp;&nbsp;{{cat.name}}</div>
         </div>
         <div class="menu_wrapper" :class="{'active': menuIndex.about}">
           <div class="menu_fa_item" @click="menuChange('about')"><i class="iconfont icon-ren"></i>&nbsp;&nbsp;关于</div>
@@ -76,7 +74,9 @@ export default {
         sort: false,
         about: false,
         friurl: false
-      }
+      },
+      categorys:[],
+      icons:['icon-leijishufuwux', 'icon-78lvxing', 'icon-Trekking']
     }
   },
   methods: {
@@ -96,6 +96,20 @@ export default {
         this.popupLeftVisible=false;
       };
     },
+    getCategory() {
+      var vim = this;
+      getAll('/category/all', {})
+      .then(function(data){
+        console.log(data);
+        vim.categorys = data.data;
+      })
+      .catch(function(err){
+        console.log(err);
+      });
+    },
+  },
+  mounted(){
+    this.getCategory();
   },
   components: {
     //'v-item': item,

@@ -1,0 +1,61 @@
+extends ./layout
+
+block content
+  .main
+    //- 菜单按钮
+    a.menu_btn.menu_btn_left(href="/#/")
+      i.iconfont.icon-home 首页
+    //- 主体内容
+    .content_panel
+      .blog_item
+        .item_head
+          p.blog_title
+            a(href="") 关于
+        .item_info.meta
+          .authInfo
+            .author_avatar
+              img(src="../static/images/logan.jpg" alt="作者头像")
+            div
+              strong 蔡胜龙
+              span 2018年1月24日
+          .item_right_menu
+            span 技术栈
+        .item_desc.self_content
+          p 博主，原名蔡胜龙。一个出道三年的程序猿
+          p 据广告里说，这烟吸入后吐出的烟，会变成治愈系神兽的形态来抚慰你。据广告里说，这烟吸入后吐出的烟，会变成治愈系神兽的形态来抚慰你。据广告里说，这烟吸入后吐出的烟，会变成治愈系神兽的形态来抚慰你。
+          p 据广告里说，这烟吸入后吐出的烟，会变成治愈系神兽的形态来抚慰你。据广告里说，这烟吸入后吐出的烟，会变成治愈系神兽的形态来抚慰你。据广告里说，这烟吸入后吐出的烟，会变成治愈系神兽的形态来抚慰你。
+
+        .item_desc
+          .comment_area
+            .mail_wrap
+              input(type="text" placeholder="昵称")
+              input(type="text" placeholder="邮箱")
+              input(type="text" placeholder="网址")
+            textarea.comment_text(name="" id="" cols="30" rows="10" placeholder="说点什么吧...")
+            .tool_bar
+              .send_btn 回复
+            .comment_conten
+              .comment_top
+                span#comment_num 2
+                |条评论
+              //- 评论区内容 
+              .comment_items
+                .comment_item
+                  .visitor_info
+                    .visitor_avatar
+                      img(src="../static/images/logan.jpg" alt="")
+                    .visitor_name 蔡胜龙
+                    .visitor_tool Safari 11.0
+                    .visitor_sys iOS 11.1.2
+                  .visitor_content
+                    span.to_someone @蔡胜龙
+                    span.visitor_text 你好，怎么联系你呢？
+                    .visitor_bottom
+                      span.comment_date 2016年3月4日
+                      span.reply_btn 回复
+  footer
+    .csl_any
+      a.icon_btn(href="")
+        i.iconfont.icon-GitHub
+    .csl_right Copyright © 2015 - 2018 蔡胜龙的博客
+    .csl_other
