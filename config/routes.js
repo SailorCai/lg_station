@@ -65,7 +65,6 @@ module.exports = function(app){
       _page.save(function(err, page){
         if(err){
           console.log(err);
-          console.log(11111);
         };
         if(categoryId){
           Category.findById(categoryId, function(err, category){
@@ -75,23 +74,36 @@ module.exports = function(app){
             });
           });
         }else if(categoryName){
-          var _category = new Category({
-            name: categoryName,
-            pages: [page._id]
-          });
-          _category.save(function(err, category){
-          	if(err){
-          		console.log(err);
-          	};
-            page.category = category._id;
-            page.save(function(err, page){
-              if(err){
-                console.log(err);
-              };
-              res.send(page);
-              //res.redirect('/page/'+page._id);
-            });
-          });
+        	Category.findOne({name: categoryName})
+        	.exec(function(err, cate){
+        		if(err){
+        			console.log(err);
+        		};
+        		if(cate){
+        			cate.pages.push(_page);
+	            cate.save(function(err, category){
+	              //res.redirect('/page/'+page._id);
+	            });
+        		}else{
+		          var _category = new Category({
+		            name: categoryName,
+		            pages: [page._id]
+		          });
+		          _category.save(function(err, category){
+		          	if(err){
+		          		console.log(err);
+		          	};
+		            page.category = category._id;
+		            page.save(function(err, page){
+		              if(err){
+		                console.log(err);
+		              };
+		              res.send(page);
+		              //res.redirect('/page/'+page._id);
+		            });
+		          });
+        		};
+        	});
         };
       });
   	};
