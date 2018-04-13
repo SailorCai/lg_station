@@ -47,8 +47,7 @@ export default {
   			author: '',
   			summary: '',
   			content: '',
-  			category: '',
-	        categoryName: '',
+	      categoryName: '',
   		},
       categorys:[],
   	}

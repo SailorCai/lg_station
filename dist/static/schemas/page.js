@@ -46,7 +46,7 @@ pageSchema.statics = { //给模式添加静态方法
   fetch: function(cb){
     return this
       .find({})
-      .sort('meta.updateAt')
+      .sort({'meta.updateAt':-1})
       .exec(cb)
   },
   findById: function(id, cb){

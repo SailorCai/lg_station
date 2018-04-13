@@ -43,7 +43,7 @@ categorySchema.statics = {
   },
   findByName: function(name, cb){
     return this
-    .findOne({name: name}),
+    .findOne({name: name})
     .exec(cb)
   }
 };
