@@ -4,7 +4,7 @@
   <mt-popup position="top" :modal="false" v-model="popupTopVisible" style="width:100%;background:none;">
     <div class="search_modal">
       <div class="search_wrapper">
-        <input type="text" class="input_text">
+        <input type="text" placeholder="功能暂未开发，敬请期待" class="input_text">
         <div class="search_btn"><i class="iconfont icon-sousuosearch79"></i></div>
         <div class="search_btn bg_danger" @click="popupTopVisible=false"><i class="iconfont icon-quxiao"></i></div>
       </div>
