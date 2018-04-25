@@ -1,4 +1,4 @@
-search.vue<template>
+<template>
 	<section>
       <v-item v-for="item in pageList" :page="item"></v-item>
 	</section>

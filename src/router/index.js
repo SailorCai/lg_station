@@ -4,6 +4,7 @@ import Home from '@/components/home'
 import Main from '@/components/main/main.vue'
 import mySelf from '@/components/mySelf/mySelf.vue'
 import Editor from '@/components/editor/editor.vue'
+import Search from '@/components/search/search.vue'
 
 Vue.use(Router)
 
@@ -37,6 +38,10 @@ export default new Router({
           path: '/editor',
           name: 'admin',
           component: Editor
+        },
+        {
+          path: '/category',
+          component: Search
         }    
       ]
     },

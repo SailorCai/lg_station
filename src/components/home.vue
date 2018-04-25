@@ -27,7 +27,7 @@
             <i class="iconfont icon-leimupinleifenleileibie2"></i>&nbsp;&nbsp;分类
             <i class="iconfont icon-arrow-right-copy-copy-copy" style="float:right"></i>
           </div>
-          <div class="menu_ch_item" v-for="(cat,index) in categorys"><i class="iconfont" :class="icons[index]"></i>&nbsp;&nbsp;{{cat.name}}</div>
+          <div class="menu_ch_item" v-for="(cat,index) in categorys" @click="gotCat(cat._id)"><i class="iconfont" :class="icons[index]"></i>&nbsp;&nbsp;{{cat.name}}</div>
         </div>
         <div class="menu_wrapper" :class="{'active': menuIndex.about}">
           <div class="menu_fa_item" @click="menuChange('about')"><i class="iconfont icon-ren"></i>&nbsp;&nbsp;关于</div>
@@ -95,6 +95,9 @@ export default {
         this.$router.push('/main');
         this.popupLeftVisible=false;
       };
+    },
+    gotCat(id) {
+      this.$router.push('/search/'+id);
     },
     getCategory() {
       var vim = this;
