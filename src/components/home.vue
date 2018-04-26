@@ -97,7 +97,7 @@ export default {
       };
     },
     gotCat(id) {
-      this.$router.push('/search/'+id);
+      this.$router.push('/category/'+id);
     },
     getCategory() {
       var vim = this;
