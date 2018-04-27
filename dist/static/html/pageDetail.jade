@@ -8,22 +8,20 @@ block content
     //- 主体内容
     .content_panel
       .blog_item
-        .item_head
+        .item_head(style="background-image:url(#{page.bannerUrl})")
           p.blog_title
-            a(href="")关于
+            a(href="") #{page.title}
         .item_info.meta
           .authInfo
             .author_avatar
               img(src="../static/images/logan.jpg" alt="作者头像")
             div
-              strong 蔡胜龙
-              span 2018年1月24日
+              strong #{page.author}
+              span #{page.time||page.meta.createAt}
           .item_right_menu
-            span 技术栈
+            span #{page.category.name}
         .item_desc.self_content
-          p 博主，原名蔡胜龙。一个出道三年的程序猿
-          p 据广告里说，这烟吸入后吐出的烟，会变成治愈系神兽的形态来抚慰你。据广告里说，这烟吸入后吐出的烟，会变成治愈系神兽的形态来抚慰你。据广告里说，这烟吸入后吐出的烟，会变成治愈系神兽的形态来抚慰你。
-          p 据广告里说，这烟吸入后吐出的烟，会变成治愈系神兽的形态来抚慰你。据广告里说，这烟吸入后吐出的烟，会变成治愈系神兽的形态来抚慰你。据广告里说，这烟吸入后吐出的烟，会变成治愈系神兽的形态来抚慰你。
+          | !{page.content}
 
         .item_desc
           .comment_area

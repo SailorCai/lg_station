@@ -54,11 +54,7 @@ export default {
   			summary: '',
   			time: '',
   			content: '',
-<<<<<<< HEAD
 	      categoryName: '',
-=======
-	        categoryName: '',
->>>>>>> 70323db33afce08314d28819199c8dc37b13e012
   		},
 	    categorys:[],
   	}

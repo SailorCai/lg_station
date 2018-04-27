@@ -39,11 +39,7 @@ categorySchema.statics = {
   findById: function(id, cb){
     return this
       .findOne({_id: id})
-<<<<<<< HEAD
-      .exec(cb)
-=======
       .exec(cb);
->>>>>>> 70323db33afce08314d28819199c8dc37b13e012
   },
   findByName: function(name, cb){
     return this

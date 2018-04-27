@@ -1,6 +1,6 @@
 <template>
     <div class="blog_item">
-      <div class="item_head" ref="item_head" :style="bkStyle">
+      <div class="item_head" ref="item_head" :style="bkStyle" @click="go_page(page)">
         <img :src="page.bannerUrl" alt="">
         <p class="blog_title">
           <a href="">{{page.title}}</a>
@@ -38,6 +38,13 @@ export default {
     return{
       bkStyle:{'backgound-image':'url('+this.page.bannerUrl+')'}
     };
+  },
+  methods:{
+    go_page(item) {
+      if(item._id){
+        window.location.href="page/"+item._id;
+      };
+    },
   },
   mounted() {
     this.$nextTick(function () {

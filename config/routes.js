@@ -23,19 +23,34 @@ module.exports = function(app){
   });
 
   app.get('/page/:id', function(req, res){
-  	var id = req.params.id;
-  	console.log(id);
-  	Page.findById(id,function(err, page){
-  		if(err){
-  			console.log(err);
-  			res.send(err);
-  		}else{
-  			res.render('pageDetail', {
-  				title: '文章阅读',
-  				page: page
-  			});
-  		}
-  	});
+    var id = req.params.id;
+    console.log(id);
+    Page.findById(id,function(err, page){
+      if(err){
+        console.log(err);
+        res.send(err);
+      }else{
+        res.render('pageDetail', {
+          title: '文章阅读',
+          page: page
+        });
+      }
+    });
+  });
+
+  app.get('/category/:id', function(req, res){
+    var id = req.params.id;
+    console.log(id);
+    Category.findOne({_id:id})
+    .populate('pages')
+    .exec(function(err, category){
+      if(err){
+        console.log(err);
+        res.send(err);
+      }else{
+        res.send(category);
+      }
+    });
   });
 
   app.post('/page/save', function(req, res){

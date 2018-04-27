@@ -4,7 +4,7 @@
   <mt-popup position="top" :modal="false" v-model="popupTopVisible" style="width:100%;background:none;">
     <div class="search_modal">
       <div class="search_wrapper">
-        <input type="text" class="input_text">
+        <input type="text" placeholder="功能暂未开发，敬请期待" class="input_text">
         <div class="search_btn"><i class="iconfont icon-sousuosearch79"></i></div>
         <div class="search_btn bg_danger" @click="popupTopVisible=false"><i class="iconfont icon-quxiao"></i></div>
       </div>
@@ -27,7 +27,7 @@
             <i class="iconfont icon-leimupinleifenleileibie2"></i>&nbsp;&nbsp;分类
             <i class="iconfont icon-arrow-right-copy-copy-copy" style="float:right"></i>
           </div>
-          <div class="menu_ch_item" v-for="(cat,index) in categorys"><i class="iconfont" :class="icons[index]"></i>&nbsp;&nbsp;{{cat.name}}</div>
+          <div class="menu_ch_item" v-for="(cat,index) in categorys" @click="gotCat(cat._id)"><i class="iconfont" :class="icons[index]"></i>&nbsp;&nbsp;{{cat.name}}</div>
         </div>
         <div class="menu_wrapper" :class="{'active': menuIndex.about}">
           <div class="menu_fa_item" @click="menuChange('about')"><i class="iconfont icon-ren"></i>&nbsp;&nbsp;关于</div>
@@ -95,6 +95,9 @@ export default {
         this.$router.push('/main');
         this.popupLeftVisible=false;
       };
+    },
+    gotCat(id) {
+      this.$router.push('/category/'+id);
     },
     getCategory() {
       var vim = this;
