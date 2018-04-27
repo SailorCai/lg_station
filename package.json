@@ -17,6 +17,7 @@
     "connect-multiparty": "^2.1.0",
     "cookie-parser": "^1.4.3",
     "express-session": "^1.15.6",
+    "jade": "^1.11.0",
     "mint-ui": "^2.2.13",
     "moment": "^2.20.1",
     "mongoose": "^5.0.7",

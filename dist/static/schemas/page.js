@@ -11,6 +11,7 @@ var pageSchema = new Schema({
   author: String,
   bannerUrl: String,
   summary: String,
+  time: String,
   content: String,
   pv: {
     type: Number,

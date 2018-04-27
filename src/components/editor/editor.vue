@@ -21,8 +21,14 @@
     <input type="text" name="" class="editor_input" v-model="form.categoryName">
   </div>
   <div class="editor_filed">
+    <span class="attr_name">时间</span>
+    <input type="text" name="" class="editor_input" v-model="form.time">
+  </div>
+  <div class="editor_filed">
     <span class="attr_name">分类选择：</span>
-    <label for="" v-for="item in categorys"><input type="radio"></label>
+    <select v-model="form.category">
+    	<option v-for="item in categorys" :value="item._id">{{item.name}}</option>
+    </select>
   </div>
 	<div class="editor_filed">
 		<span class="attr_name">文章内容：</span>
@@ -46,10 +52,15 @@ export default {
   			bannerUrl: '',
   			author: '',
   			summary: '',
+  			time: '',
   			content: '',
+<<<<<<< HEAD
 	      categoryName: '',
+=======
+	        categoryName: '',
+>>>>>>> 70323db33afce08314d28819199c8dc37b13e012
   		},
-      categorys:[],
+	    categorys:[],
   	}
   },
   methods: {

@@ -29,9 +29,13 @@ export default {
         author: '蔡胜龙',
         title: '四月早安！深圳早安！你是否准备好了迎接四月的挑战？',
         summary: '',
+        category: {
+        	name: '最新动态'
+        },
         bannerUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522730027573&di=a65285254935d2163be9377a6c913e7b&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1704%2F17%2Fc6%2F43595073_1492414025291_mthumb.jpg',
         meta:{
           createAt: '2018年4月1日',
+          updateAt: '2018年4月1日',
         },
       }
 		}
@@ -43,6 +47,10 @@ export default {
 	      .then((data)=>{
 	        //console.log(data);
 	        vim.pageList = data.data;
+	        for(var i=0;i<data.data.length;i++){
+	        	console.log(typeof vim.pageList[i].meta.updateAt)
+	        };
+	        console.log(vim.pageList);
 	      })
 	      .catch((err)=>{
 	        console.log(err);
@@ -53,7 +61,7 @@ export default {
     this.getList();
 	},
 	components: {
-	'v-item': item,
+		'v-item': item,
 	}
 }
 </script>

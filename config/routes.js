@@ -7,15 +7,35 @@ var Category = require('../static/models/category');
 
 module.exports = function(app){
   app.get('/page/list', function(req, res){
-    Page.fetch(function(err, pages){
+    Page
+    .find({})
+    .populate('category', 'name')
+    .sort({'meta.updateAt': -1})
+    .exec(function(err, pages){
     	if(err){
     		console.log(pages);
     	}else{
-		    console.log(pages);
+		    console.log(pages[0].meta.updateAt.getFullYear());
     		res.send(pages);
     	};
     });
     //res.writeHeader(200, {'content-Type':'text/plain'});
+  });
+
+  app.get('/page/:id', function(req, res){
+  	var id = req.params.id;
+  	console.log(id);
+  	Page.findById(id,function(err, page){
+  		if(err){
+  			console.log(err);
+  			res.send(err);
+  		}else{
+  			res.render('pageDetail', {
+  				title: '文章阅读',
+  				page: page
+  			});
+  		}
+  	});
   });
 
   app.post('/page/save', function(req, res){
@@ -45,7 +65,6 @@ module.exports = function(app){
       _page.save(function(err, page){
         if(err){
           console.log(err);
-          console.log(11111);
         };
         if(categoryId){
           Category.findById(categoryId, function(err, category){
@@ -55,23 +74,36 @@ module.exports = function(app){
             });
           });
         }else if(categoryName){
-          var _category = new Category({
-            name: categoryName,
-            pages: [page._id]
-          });
-          _category.save(function(err, category){
-          	if(err){
-          		console.log(err);
-          	};
-            page.category = category._id;
-            page.save(function(err, page){
-              if(err){
-                console.log(err);
-              };
-              res.send(page);
-              //res.redirect('/page/'+page._id);
-            });
-          });
+        	Category.findOne({name: categoryName})
+        	.exec(function(err, cate){
+        		if(err){
+        			console.log(err);
+        		};
+        		if(cate){
+        			cate.pages.push(_page);
+	            cate.save(function(err, category){
+	              //res.redirect('/page/'+page._id);
+	            });
+        		}else{
+		          var _category = new Category({
+		            name: categoryName,
+		            pages: [page._id]
+		          });
+		          _category.save(function(err, category){
+		          	if(err){
+		          		console.log(err);
+		          	};
+		            page.category = category._id;
+		            page.save(function(err, page){
+		              if(err){
+		                console.log(err);
+		              };
+		              res.send(page);
+		              //res.redirect('/page/'+page._id);
+		            });
+		          });
+        		};
+        	});
         };
       });
   	};
