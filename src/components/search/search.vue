@@ -28,9 +28,11 @@ export default {
 	methods:{
 	    getList() {
 	    	var vim = this;
-	      getAll('/page/list', {})
+	    	let id = this.$route.params.categoryId;
+	    	console.log(id);
+	      getAll('/page/catList/'+id, {})
 	      .then((data)=>{
-	        //console.log(data);
+	        console.log(data.data);
 	        vim.pageList = data.data;
 	        for(var i=0;i<data.data.length;i++){
 	        	console.log(typeof vim.pageList[i].meta.updateAt)

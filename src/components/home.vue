@@ -98,12 +98,13 @@ export default {
     },
     gotCat(id) {
       this.$router.push('/category/'+id);
+      window.location.reload()
     },
     getCategory() {
       var vim = this;
-      getAll('/category/all', {})
+      getAll('/categorys/all', {})
       .then(function(data){
-        console.log(data);
+        console.log(data.data);
         vim.categorys = data.data;
       })
       .catch(function(err){

@@ -38,11 +38,28 @@ module.exports = function(app){
     });
   });
 
+  app.get('/page/catList/:id', function(req, res){
+    var id = req.params.id;
+    Page
+    .find({category:id})
+    .populate('category', 'name')
+    .sort({'meta.updateAt': -1})
+    .exec(function(err, pages){
+    	if(err){
+    		console.log(pages);
+    	}else{
+		    console.log(pages[0].meta.updateAt.getFullYear());
+    		res.send(pages);
+    	};
+    });
+  });
+
   app.get('/category/:id', function(req, res){
     var id = req.params.id;
     console.log(id);
     Category.findOne({_id:id})
     .populate('pages')
+    .populate('pages.category')
     .exec(function(err, category){
       if(err){
         console.log(err);
@@ -126,7 +143,7 @@ module.exports = function(app){
   });
 
   // 获取分类
-  app.get('/category/all', function(req, res){
+  app.get('/categorys/all', function(req, res){
     Category.fetch(function(err, categorys){
       if(err){
         console.log(err);
