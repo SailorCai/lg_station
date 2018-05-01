@@ -11,7 +11,7 @@ var fs = require('fs');
 var env = process.env.NODE_ENV || 'development';
 
 app.use(express.static(path.join(__dirname, 'dist')));
-var dbUrl = 'mongodb://logan_runner:H**k9001$@127.0.0.1:29999/lg_data';
+var dbUrl = 'mongodb://my_runner:J**k9001$@127.0.0.1:29999/lg_data';
 
 if(env === 'development'){
   dbUrl = 'mongodb://localhost/lgData';
