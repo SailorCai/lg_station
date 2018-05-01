@@ -18,7 +18,7 @@ if(env === 'development'){
 };
 
 mongoose.connect(dbUrl, {
-  //useMongoClient:true
+  useMongoClient:true
 });
 
 app.locals.moment = require('moment');
