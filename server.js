@@ -13,9 +13,9 @@ var env = process.env.NODE_ENV || 'development';
 app.use(express.static(path.join(__dirname, 'dist')));
 var dbUrl = 'mongodb://logan_runner:H**k9001$@127.0.0.1:29999/lgData';
 
-/*if(env === 'development'){
+if(env === 'development'){
   dbUrl = 'mongodb://localhost/lgData';
-};*/
+};
 
 mongoose.connect(dbUrl, {
   useMongoClient:true
