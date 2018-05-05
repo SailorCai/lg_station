@@ -30,7 +30,7 @@ app.use(multipart());
 app.use(session({
   resave: false,  
   saveUninitialized: true,
-  secret: 'imooc',
+  secret: 'logan',
   store: new mongoStore({
     url: dbUrl, 
     collection: 'sessions'
