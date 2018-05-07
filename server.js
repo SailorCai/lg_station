@@ -10,7 +10,6 @@ var fs = require('fs');
 var env = process.env.NODE_ENV || 'development';
 
 var app = express();
-app.use(express.static(path.join(__dirname, 'dist')));
 var dbUrl = 'mongodb://logan_runner:H**k9001$@127.0.0.1:29999/lgData';
 
 if(env === 'development'){
@@ -20,6 +19,27 @@ if(env === 'development'){
 mongoose.connect(dbUrl, {
   useMongoClient:true
 });
+
+//models loading
+var models_path = __dirname + '/app/models';
+var walk = function(path) {
+  fs
+    .readdirSync(path)
+    .forEach(function(file){
+      var newPath = path + '/' + file;
+      var stat = fs.statSync(newPath);
+
+      if(stat.isFile()){
+        if(/(.*)\.(js|coffee)/.test(file)){
+          require(newPath);
+        };
+      }else if(stat.isDirectory()){
+        walk(newPath);
+      };
+    })
+};
+
+walk(models_path);
 
 app.locals.moment = require('moment');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -60,3 +80,4 @@ var server = app.listen(3002, function(){
 
   console.log('应用实例，访问地址为http://%s%s', host, port);
 });
+app.use(express.static(path.join(__dirname, 'dist')));
