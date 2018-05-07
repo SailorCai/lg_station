@@ -20,7 +20,7 @@
     "jade": "^1.11.0",
     "mint-ui": "^2.2.13",
     "moment": "^2.20.1",
-    "mongoose": "^5.0.7",
+    "mongoose": "^4.11.11",
     "underscore": "^1.8.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
