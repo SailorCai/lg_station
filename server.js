@@ -14,12 +14,12 @@ app.use(express.static(path.join(__dirname, 'dist')));
 //var dbUrl = 'mongodb://logan_runner:H**k9001$@127.0.0.1:29999/lgData';
 var dbUrl = 'mongodb://imooc_movie_runner:F**k9001$@127.0.0.1:29999/imooc_movie';
 
-/*if(env === 'development'){
+if(env === 'development'){
   dbUrl = 'mongodb://localhost/lgData';
-};*/
+};
 
 mongoose.connect(dbUrl, {
-  useMongoClient:true
+  //useMongoClient:true
 });
 
 app.locals.moment = require('moment');
