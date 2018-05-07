@@ -1,6 +1,5 @@
 var express = require('express');
 var path  = require('path');
-var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -10,9 +9,9 @@ var multipart = require('connect-multiparty');
 var fs = require('fs');
 var env = process.env.NODE_ENV || 'development';
 
+var app = express();
 app.use(express.static(path.join(__dirname, 'dist')));
-//var dbUrl = 'mongodb://logan_runner:H**k9001$@127.0.0.1:29999/lgData';
-var dbUrl = 'mongodb://imooc_movie_runner:F**k9001$@127.0.0.1:29999/imooc_movie';
+var dbUrl = 'mongodb://logan_runner:H**k9001$@127.0.0.1:29999/lgData';
 
 if(env === 'development'){
   dbUrl = 'mongodb://localhost/lgData';
