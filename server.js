@@ -21,7 +21,7 @@ mongoose.connect(dbUrl, {
 });
 
 //models loading
-var models_path = __dirname + '/app/models';
+var models_path = __dirname + '/static/models';
 var walk = function(path) {
   fs
     .readdirSync(path)
